@@ -20,10 +20,14 @@ create table roles
 
 create table user_roles
 (
-    user_id INT not null,
-    role_id INT not null,
-    foreign key (user_id) references users (id),
-    foreign key (role_id) references roles (id)
+    user_id int not null,
+    role_id int not null,
+    constraint user_roles_ibfk_1
+        foreign key (user_id) references users (id)
+            on update cascade on delete cascade,
+    constraint user_roles_ibfk_2
+        foreign key (role_id) references roles (id)
+            on update cascade on delete cascade
 );
 
 create table menu
