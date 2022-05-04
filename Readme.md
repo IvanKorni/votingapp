@@ -19,4 +19,4 @@ A built executable jar is working application and does not need any specific con
 
 SpringbootApplication deploy to localserver
 
-resources/db for init and populate DB
+resources/db for initialization and populate DB

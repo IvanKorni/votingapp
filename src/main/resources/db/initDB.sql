@@ -14,8 +14,8 @@ create table users
 
 create table roles
 (
-    id   int auto_increment not null primary key,
-    name varchar(100)       not null
+    id   int          not null primary key,
+    name varchar(100) not null
 );
 
 create table user_roles

@@ -32,11 +32,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/menus").hasAnyRole("USER","ADMIN")
-                .antMatchers(HttpMethod.PUT,"/api/menu/vote/**").hasRole("USER")
-                .antMatchers(HttpMethod.POST,"/api/menus").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/api/menus").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/api/menu/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/api/menus").hasAnyAuthority("USER","ADMIN")
+                .antMatchers(HttpMethod.PUT,"/api/menu/vote/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.POST,"/api/menus").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT,"/api/menus").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/api/menu/**").hasAuthority("ADMIN")
                 .and().httpBasic()
                 .and().formLogin()
                 .and().logout()
