@@ -19,9 +19,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    private DataSource dataSource;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
@@ -33,7 +30,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/api/menus").hasAnyAuthority("USER","ADMIN")
-                .antMatchers(HttpMethod.PUT,"/api/menu/vote/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.PUT,"/api/menu/**").hasAuthority("USER")
                 .antMatchers(HttpMethod.POST,"/api/menus").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT,"/api/menus").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE,"/api/menu/**").hasAuthority("ADMIN")
