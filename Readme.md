@@ -12,11 +12,9 @@ Voting system for deciding where to have lunch.
 ### Server
 #### Build requirements
 - Java 17
-- Mysql
+- H2 db
   
 #### Run an application
 A built executable jar is working application and does not need any specific configuration.
 
 SpringbootApplication deploy to localserver
-
-resources/db for initialization and populate DB
