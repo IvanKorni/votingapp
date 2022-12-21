@@ -1,4 +1,4 @@
-package com.spring.springboot;
+package com.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ public class LoginTest {
     }
 
     @Test
-    public void correctLoginTest() throws Exception {
+    public void formLoginTestWithCorrectData() throws Exception {
         this.mockMvc.perform(formLogin().user("admin").password("admin"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
@@ -40,7 +40,7 @@ public class LoginTest {
     }
 
     @Test
-    public void badCredentials() throws Exception {
+    public void postActionWithoutAuth() throws Exception {
         this.mockMvc.perform(post("/api/menus").param("Восход", "1,2,3"))
                 .andDo(print())
                 .andExpect(status().isUnauthorized());
